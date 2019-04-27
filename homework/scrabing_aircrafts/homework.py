@@ -22,8 +22,7 @@ if r.status_code == 200:
         planes_dict[model.find("h2").text] = plane_dict
 
     for image in models_image:
-        name = image.previous_sibling.find("h2")
-        print(name)
+        name = image.previous_sibling.previous_sibling.find("h2").text
+        planes_dict[name] = image.find("img")["src"]
     print(planes_dict)
-
 
